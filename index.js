@@ -1,10 +1,9 @@
-const { connectToDatabase } = require('./mongodb');
 const initializeBot = require('./utils/intializer');
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 (async () => {
-    await connectToDatabase();
     const client = require('./main');
+
     await new Promise((resolve) => {
         if (client.isReady()) {
             resolve();
@@ -32,20 +31,28 @@ const loadEventHandlers = async (client) => {
     
     require('./events/ticketHandler')(client);
     log('Ticket Handler loaded');
+
     require('./events/voiceChannelHandler')(client);
     log('Voice Channel Handler loaded');
+
     require('./events/autorole')(client);
     log('Autorole Handler loaded');
+
     require('./events/nqn')(client);
     log('NQN Handler loaded');
+
     require('./events/afkHandler')(client);
     log('AFK Handler loaded');
+
     require('./events/youTubeHandler')(client);
     log('YouTube Notifier loaded');
+
     require('./events/twitchHandler')(client);
     log('Twitch Notifier loaded');
+
     require('./events/facebookHandler')(client);
     log('Facebook Notifier loaded');
+
     require('./events/instagramHandler')(client);
     log('Instagram Notifier loaded');
     
