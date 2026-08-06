@@ -1,8 +1,8 @@
 {
-    "token": "",
+    "token": "tu_token",
     "language": "en",
-    "prefix": "!",
-    "mongodbUri": "",
+    "prefix": "v!",
+    "mongodbUri": "tu_uri",
     "excessCommands": {
         "other": true,
         "hentai": true,
